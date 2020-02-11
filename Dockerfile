@@ -1,7 +1,7 @@
 # docker-compose image
 FROM docker/compose:latest
-LABEL maintainer="docker@ix.ai"\
-      ai.ix.repository="ix.ai/swarm-launcher"
+LABEL maintainer="palmermatic@gmail.com"\
+      palmermatic.repository="palmermatic/swarm-launcher"
 
 RUN apk add --no-cache bash
 

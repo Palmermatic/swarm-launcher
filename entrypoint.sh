@@ -44,8 +44,6 @@ services:
   ${LAUNCH_SERVICE_NAME}:
     image: "${LAUNCH_IMAGE}"
     restart: "no"
-    labels:
-      ai.ix.started-by: ix.ai/swarm-launcher
 xEOF
 
   # name the container
@@ -57,12 +55,25 @@ xEOF
   if [ "${LAUNCH_PRIVILEGED}" = true ]; then
     echo "    privileged: \"true\"" >> ${COMPOSE_FILE}
   fi
+  
+  # CAP_ADD
+  if [ -n "${CAP_ADD}" ]; then
+    echo "    CAP_ADD: \"${CAP_ADD}\"" >> ${COMPOSE_FILE}
+  fi
 
   # the environment variables
   if [ -n "${LAUNCH_ENVIRONMENTS}" ]; then
     echo "    environment:" >> ${COMPOSE_FILE}
     for ENVIRONMENT in ${LAUNCH_ENVIRONMENTS}; do
       echo "      - ${ENVIRONMENT}" >> ${COMPOSE_FILE}
+    done
+  fi
+
+  # labels
+  if [ -n "${LAUNCH_LABELS}" ]; then
+    echo "    labels:" >> ${COMPOSE_FILE}
+    for LABEL in ${LAUNCH_LABELS}; do
+      echo "      - ${LABEL}" >> ${COMPOSE_FILE}
     done
   fi
 

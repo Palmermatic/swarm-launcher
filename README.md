@@ -136,10 +136,5 @@ networks:
     attachable: false
 ```
 
-## Resources:
-* GitLab: https://gitlab.com/ix.ai/swarm-launcher
-* GitHub: https://github.com/ix-ai/swarm-launcher
-* Docker Hub: https://hub.docker.com/r/ixdotai/swarm-launcher
-
 ## Credits
 This Docker image is inspired by the post by [@akomelj](https://github.com/akomelj) in [moby/moby#25885](https://github.com/moby/moby/issues/25885#issuecomment-573449645)
